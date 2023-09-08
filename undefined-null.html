@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>undefined-null</title>
+</head>
+<body>
+
+  <h1 id="dataType">undefined-null</h1>
+
+  <!-- internal script -->
+  <script type="text/javascript">
+    // Uninitialized variables
+    var abc;
+    console.log('Uninitialized variables: ', abc)
+
+    // missing parameter
+    function sum(a, b) {
+      console.log('sum: ', a, b)
+    }
+
+    sum(2);
+
+    // null
+    const nullvalue = null;
+    function getVowels(str) {
+      const m = str.match(/[aeiou]/gi);
+      if(m === null) return 0;
+      return m.length
+    }
+    console.log('null: ', getVowels('b'), nullvalue)
+  </script>
+</body>
+</html>

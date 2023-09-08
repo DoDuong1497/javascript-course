@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Operator</title>
+</head>
+<body>
+
+  <h1 id="dataType">Operator</h1>
+
+  <!-- internal script -->
+  <script type="text/javascript">
+    /*
+    && - return true if both expression are true, otherwise it returns false
+      if side left is true, return value side right.
+      if side left is false, return value side left.
+    || - return the first truthy value.
+    !  - return true for false statements and false for true statements.
+    !! - return value negative of !
+    ?? - return the first defined value
+    */
+
+    // &&
+    console.log('&&: ', '123' && 'abc'); //  true && 'abc' -> 'abc'
+    console.log('&&: ', false && '123'); // false
+
+    // !
+    console.log('!: ', !!'abc'); // !!Boolean('abc') -> !!true -> !false -> true
+
+    // ??
+    const cart = 0; // value from BE
+    console.log('??: ',  cart ?? 'no data')
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Coercion type</title>
+</head>
+<body>
+
+  <h1 id="dataType">Coercion type</h1>
+
+  <!-- internal script -->
+  <script type="text/javascript">
+
+    // typof : to check type value
+    const valueA = 'tr';
+
+    console.log('typeof: ', typeof valueA)
+
+    // string coercion -> convert value to string
+    const anyValueStr = true; 
+    console.log('string coercion 1: ', String(anyValueStr))
+    console.log('string coercion 2: ', anyValueStr.toString())
+
+    // numeric coercion -> convert value to number
+    const anyStrabc = '2323';
+    console.log('numeric coercion 1: ', Number(anyStrabc))
+    console.log('numeric coercion 2: ', Number('dasdsadasdsa')); // NaN: not a number
+    console.log('numeric coercion boolean: ', Number(true)); // 1
+
+    // boolean coercion -> convert value to boolean
+    // null, 0, undefiend, NaN, "" -> false
+    console.log('boolean coercion 1: ', Boolean('2312')); // true
+    console.log('boolean coercion 2: ', Boolean({})); // true
+  </script>
+
+</body>
+</html>

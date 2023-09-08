@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Object</title>
+</head>
+<body>
+
+  <h1 id="dataType">Object</h1>
+
+  <!-- internal script -->
+  <script type="text/javascript">
+    // compare value (tham trị)
+    const a = 'dasd';
+    const b = 'ewqewq';
+
+    console.log('compare value: ', a === b); // false
+
+    // compare reference type (tham chiếu) - Object, Array
+    const objA = {}; // memory A
+    const objB = {}; // memory B
+    const objC = objA;
+
+    console.log("compare reference A C: ", objA === objC); // true
+    console.log("compare reference A B: ", objA === objB); // false
+  </script>
+</body>
+</html>

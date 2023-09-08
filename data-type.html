@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Data Type</title>
+</head>
+<body>
+
+  <h1 id="dataType">Data Type</h1>
+
+  <!-- internal script -->
+  <script type="text/javascript">
+    const dataType = document.getElementById('dataType'); // HTML DOM
+
+    console.log('internal script: ', dataType)
+    /*
+      Primitive Values.
+    */
+    const isLoading = true; // Boolean true/false
+    const number = 1; // Number 1, 2, 10, 4, ….
+    const string = 'abc'; // String ‘abc’, …
+    const nullValue = null; // Null
+    const undfiendValue = undefined; // Undefined
+    const symbol = Symbol('symbol'); // Symbol (ES2015)
+
+    /*
+      Non-Primitive Values. (Reference Type)
+    */
+    const car = {
+      name: 'BMW',
+      color: 'black',
+      price: 1000000
+    }; // Objects.
+    const numbs = [1, 2, 3, 4, 5]; // Array
+
+    // Note: You can’t define your own primitive types.
+
+    /* immutable
+    - value can't b changed after it's created. 
+    */
+    var age = 18;
+
+    function convertAgeToDays() {
+      var newAge = age + 20;
+      return newAge + 10;
+    }
+
+    var getAge = convertAgeToDays();
+
+    console.log('immutable: ', {
+      age, // 18
+      getAge, // 48 
+    })
+  </script>
+
+  <!-- external script -->
+  <script type="text/javascript" src="./js/index.js"></script>
+</body>
+</html>
