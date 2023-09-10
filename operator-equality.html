@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Operator</title>
+</head>
+<body>
+
+  <h1 id="dataType">Operator Equality</h1>
+
+  <!-- internal script -->
+  <script type="text/javascript">
+    // equality == 
+    console.log('equality string & number: ', 1 == '1'); // 1 == Number('1') // When comparing a number to a string, try to convert the string to a numeric value.
+
+    console.log('equality boolean & number: ', 1 == true); // 1 == Number(true) // If one of the operands is Boolean, convert the Boolean operand to 1 if it is true and +0 if it is false.
+
+    /* valueOf()
+      The valueOf() method returns the primitive value of a string.
+      The valueOf() method does not change the original string.
+      The valueOf() method can be used to convert a string object into a string.
+    */
+    const textObject = new Number('tony');
+    console.log('valueOf: ', typeof textObject, typeof textObject.valueOf())
+    console.log('equality string with object: ', 'tony' === textObject.valueOf());
+
+
+    console.log('pack' == true); // 'pack' == 1 -> Number('pack') == 1 -> NaN == 1 => false
+
+
+  </script>
+
+</body>
+</html>

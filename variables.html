@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Variables</title>
+</head>
+<body>
+
+  <h1 id="dataType">Variables</h1>
+
+  <!-- internal script -->
+  <script type="text/javascript">
+    const number = 1; // somewhare memory
+
+    function getAge() {
+      const age = 18;
+      console.log('getAge: ', {
+        age,
+        firstName,
+      })
+    }
+    getAge();
+
+
+    /* var
+      - The var statement declares a function-scoped or globally-scoped variable, optionally initializing it to a value.
+      - Hoisting.
+      - Allow assignment.
+    */
+    console.log('before var firstName: ', firstName); // allow accept variable before initialization
+    var firstName = 'truong'; // assignment
+    console.log('after var firstName: ', firstName)
+
+    function getLastName() {
+      var lastName = 'duong';
+      console.log('function scope var lastName: ', lastName)
+    }
+    getLastName();
+
+
+    /* let
+    - The let statement declares a block-scoped local variable, optionally initializing it to a value.
+      . Allows you to declare variables that are limited to the scope of a block statement, or expression on which it is used.
+      . The let does not create properties of the window object when declared globally (in the top-most scope). 
+    - Not hoisting.
+    - Allow assignment.
+    */
+
+    // console.log('before let letCourse: ', letCourse); // not allow accept variable before initialization
+    let letCourse = 'javascript';
+
+    // block scope
+    if(true) {
+      let letCourse = 'react';
+      console.log('in block scope: ', letCourse) 
+    }
+    console.log('out block scope: ', letCourse) 
+
+    /* const
+      - The const statement declares a block-scoped local variable.
+      - Not hoisting.
+      - Not assignment.
+    */
+    const address = 'dang van ngu'
+  </script>
+
+</body>
+</html>
