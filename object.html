@@ -5,7 +5,8 @@
 </head>
 <body>
 
-  <h1 id="dataType">Object</h1>
+  <h1 id="cars"></h1>
+  <div id="codeCountry"></div>
 
   <!-- internal script -->
   <script type="text/javascript">
@@ -22,6 +23,95 @@
 
     console.log("compare reference A C: ", objA === objC); // true
     console.log("compare reference A B: ", objA === objB); // false
+
+
+    // create object
+    let cars = {
+      name: 'bmw', // property
+      isLoading: false,
+      "idf classes": "building", // multi word
+      engine: { // nested object
+        type: 'gas',
+        capactiy: 1.4,
+        'idf price': 2000
+      },
+      getFullName: function() { // method
+        console.log('this of normal function: ', this)
+        return this.name
+      },
+      getEngineType: () => {
+        console.log('this of arrow function: ', this)
+        return this?.engine?.type
+      }
+    }
+
+    // add object
+    cars.year = 1998; // add property
+    cars['brand name'] = 'gls'; // add multi word
+
+    // assingment replace object
+    cars = {
+      ...cars, // copy all property
+      country: 'Germany'
+    }
+    console.log("cars: ", cars);
+
+    // access property
+    console.log('access property way1: ', cars.name);
+    console.log('access property way2: ', cars['brand name']);
+    console.log('access property nested object: ', cars?.engine?.['idf price']); // access optional property
+
+    // access property with object destructuring
+    // const name = cars.name
+    const { name } = cars; // destructuring
+    console.log('access property destructuring: ', name)
+
+    // method object
+    console.log('method normal function: ', cars.getFullName())
+    console.log('method arrow function: ', cars.getEngineType())
+
+    // loop object -> convert object to array
+
+    // Object.keys() -> item is key
+    const keyLoop = Object.keys(cars);
+    console.log('Object.keys(): ', keyLoop)
+    const cardsDOM = document.getElementById('cars');
+
+    keyLoop.forEach(key => {
+      cardsDOM.innerHTML += `
+        ${key}: ${cars[key]} // name: cars['name'] -> name: 'bmw'
+      `
+    })
+
+    // Object.values()
+    const valueLoop = Object.values(cars);
+    console.log('Object.values(): ', valueLoop)
+
+    // Object.entrites()
+    const entriesObject = Object.entries(cars);
+    console.log('Object.entrites(): ', entriesObject)
+
+    // cheat to fix auto order object
+    const codes = {
+      "+49": "Germany",
+      "+1": "Viet Nam",
+      "+3": "Korean",
+      "+2": "Japanese",
+      "+44": "France",
+      "+45": "USA"
+    }
+   
+    // for ... in: loop object
+    const domCodes = document.getElementById('codeCountry')
+    for (let code in codes) {
+      domCodes.innerHTML += `
+        <br />
+        Code: ${code}
+        Country: ${codes[code]}
+      `
+    }
+    
+
   </script>
 </body>
 </html>

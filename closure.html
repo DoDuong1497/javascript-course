@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Closure</title>
+</head>
+<body>
+
+  <h1 id="dataType">Closure</h1>
+
+  <!-- internal script -->
+  <script type="text/javascript">
+    /*
+      - You can nest a function within a function. The nested (inner) function is private to its containing (outer) function.
+      - The inner function can be accessed only from statements in the outer function.
+      - Gives you access to an outer function's scope from an inner function
+    */
+    function outerFunction(){
+      const name = 'javascript';
+      function innerFunction() {
+        return name
+      }
+      return innerFunction;
+    }
+    const getName = outerFunction();
+    console.log(getName())
+  </script>
+
+</body>
+</html>
