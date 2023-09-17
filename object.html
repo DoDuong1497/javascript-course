@@ -101,7 +101,7 @@
       "+45": "USA"
     }
    
-    // for ... in: loop object
+    // for ... in: loop object just get key
     const domCodes = document.getElementById('codeCountry')
     for (let code in codes) {
       domCodes.innerHTML += `
@@ -110,7 +110,44 @@
         Country: ${codes[code]}
       `
     }
-    
+
+    // copy object
+    const sourceObject = {
+      firstName: 'duong',
+      lastName: 'truong',
+      course: 'react'
+    }
+
+    // using by spread object (es6)
+    const book = {
+      dateTime: Date.now(),
+      title: 'javascript'
+    }
+    // const targetObject = { ...sourceObject, ...{
+    //   dateTime: Date.now(),
+    //   title: 'javascript',
+    //   course: 'javascript'
+    // }}
+
+    // using by assign (es5)
+    // const targetObject = Object.assign(sourceObject, book)
+    const targetObject = Object.assign({}, sourceObject, book)
+
+
+    console.log('copy with spread object: ', { 
+      sourceObject,
+      targetObject,
+     })
+
+    // delete
+    const newBook = { ...book }; // shallow copy
+    delete newBook.firstName;
+
+    console.log('delete object: ', { 
+      sourceObject,
+      newBook
+    })
+
 
   </script>
 </body>
