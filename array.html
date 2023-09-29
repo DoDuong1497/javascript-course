@@ -45,6 +45,34 @@
       todos
       })
 
+
+    /*
+      splice(start, deleteCount, item1, item2, itemN) - To create a new array 
+      concept
+        - remove 1 item of array
+        - add new 1 item into array
+        - replace existing item in array: [1,2,3,4]; item = 5 & index = 2 => [1,2,5,4]
+      params:
+       - start (require): index of array. Ex: [].splice(2) -> calc from index 2
+       - deleteCount (optional): number of item will be removed. Ex: [].splice(2, 2) -> remove 2 items from index 2
+       - item1, item2, itemN (optional): items will be added into array. Ex: [].splice(1, 1, 3) -> remove 1 items from index 1 and add item 3 into array
+      Sample:
+        - [].splice(2) -> remove 1 item from index 2
+        - [].splice(2, 2) -> remove 2 items from index 2
+        - [].splice(2, 2, 3) -> remove 2 items from index 2 and add item 3 into array
+        - [].splice(1, 0, 3) -> add item 3 into array from index 1
+    */
+      const instrument = ["angel", "clown", "mandarin", "sturgeon"];
+
+      // Remove 0 elements before index 2, and insert "drum" and "guitar"
+      // const output = ["angel", "clown", "drum", "guitar", "mandarin", "sturgeon"];
+
+
+      // Remove 2 elements from index 0, and insert "parrot", "anemone" and "blue"
+      // const output = ["parrot", "anemone", "blue", "mandarin", "sturgeon"];
+    
+
+
     
   </script>
 
