@@ -29,6 +29,9 @@ $ git commit -m "{message}"
 ##  push files to current branch
 $ git push 
 
+### push set upstream
+$ git push --set-upstream origin {name branch}
+
 # check all branches
 $ git branch -all
 
@@ -37,5 +40,6 @@ $ git pull
 
 # create branch from current branch
 $ git checkout -b {name branch}
+
 
 ```
