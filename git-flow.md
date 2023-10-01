@@ -1,4 +1,4 @@
-# Giflow
+# Git cmd
 
 ```bash
 cmd              working space          staging          origin/master
@@ -35,6 +35,9 @@ $ git push --set-upstream origin {name branch}
 # check all branches
 $ git branch -all
 
+## check current branch
+$ git branch --show-current
+
 # pull latest code from current branch
 $ git pull
 
@@ -49,5 +52,29 @@ $ git merge {name branch}
 
 # clone project from remote
 $ git clone {url project}
+
+```
+
+
+# Git flow
+
+```bash
+# 1. clone project from remote
+$ git clone {url project}
+
+# 1.1  check current branch
+$ git branch --show-current
+
+# 2. create branch from main branch
+$ git checkout -b feature/{name branch}
+
+# 3. add file
+$ git add .
+
+# 4. commit message
+$ git commit -m "{message}"
+
+# 5. push to remote
+$ git push --set-upstream origin feature/{name branch}
 
 ```
