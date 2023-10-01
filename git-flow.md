@@ -41,5 +41,8 @@ $ git pull
 # create branch from current branch
 $ git checkout -b {name branch}
 
+# switch branch
+$ git checkout {name branch}
+
 
 ```
