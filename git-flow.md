@@ -47,5 +47,7 @@ $ git checkout {name branch}
 # merge branch
 $ git merge {name branch}
 
+# clone project from remote
+$ git clone {url project}
 
 ```
