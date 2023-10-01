@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Array</title>
+  </head>
+  <body>
+    <h1 id="dataType">Array</h1>
+
+    <script type="text/javascript">
+      /* findIndex -> apply object[]
+      - If you need the index of the found element in the array, use findIndex().
+      - The findIndex() method returns the index of the first element in the array that satisfies the provided testing function. Otherwise, it returns -1
+    */
+
+      // exercise 1: change title 'HP' => 'Hai Phong'
+      const addressVN = [
+        { id: 1, title: 'HCM' },
+        { id: 2, title: 'HN' },
+        { id: 3, title: 'DN' },
+        { id: 4, title: 'HP' },
+        { id: 5, title: 'CT' },
+      ];
+      const addressFromBE = 'HP';
+      const addressIndex = addressVN.findIndex(
+        (element) => element.title === addressFromBE
+      );
+
+      if (addressIndex >= 0) {
+        addressVN[addressIndex].title = 'Hải Phòng';
+        console.log(addressVN);
+      } else {
+        console.log('Not found');
+      }
+    </script>
+  </body>
+</html>
