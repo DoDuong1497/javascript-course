@@ -44,5 +44,8 @@ $ git checkout -b {name branch}
 # switch branch
 $ git checkout {name branch}
 
+# merge branch
+$ git merge {name branch}
+
 
 ```
