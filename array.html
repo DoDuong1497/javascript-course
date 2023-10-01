@@ -41,9 +41,8 @@
     const todoLength = todos.length;
 
     console.log('push: ', {
-      length: pushLength,
       todos
-      })
+    })
 
 
     /*
@@ -70,6 +69,56 @@
 
       // Remove 2 elements from index 0, and insert "parrot", "anemone" and "blue"
       // const output = ["parrot", "anemone", "blue", "mandarin", "sturgeon"];
+
+
+      /*  indexOf(searchElement, fromIndex)
+          searchElement (require): Element to locate in the array.
+          fromIndex (optional): The index to start the search at. 
+
+          - The indexOf() method returns the first index at which a given element can be found in the array, or -1 if it is not present.
+        - If you need to find the index of a value,
+      */
+
+      const namesArray = ['tony', 'peter', 'steve', 'truong', 'duong']; // string[], // number[]
+      const nameFromBE = 'steve'; // from BE
+      const namesIndex = namesArray.indexOf(nameFromBE); // 2
+      if(namesIndex >= 0) {
+        console.log('indexOf: found');
+      } else {
+        console.log('indexOf: not found');
+      }
+
+      /* filter
+          The filter() method creates a new array with all elements that pass the test implemented by the provided function.
+          Syntax:  filter(ele => { … })
+      */
+     const country = [
+      { id: 1, title: 'VN'},
+      { id: 2, title: 'US'},
+      { id: 3, title: 'UK'},
+      { id: 4, title: 'JP'},
+      { id: 5, title: 'CN'},
+     ]
+    // delete country UK from array
+    const countryFiltered = country.filter(ele => {
+      return ele.title !== 'UK';
+    })
+    
+    /* findIndex -> apply object[]
+      - If you need the index of the found element in the array, use findIndex().
+      - The findIndex() method returns the index of the first element in the array that satisfies the provided testing function. Otherwise, it returns -1
+    */
+   const addressVN = [
+    { id: 1, title: 'HCM'},
+    { id: 2, title: 'HN'},
+    { id: 3, title: 'DN'},
+    { id: 4, title: 'HP'},
+    { id: 5, title: 'CT'},
+   ]
+  const addressFromBE = 'DN';
+  const addressIndex = addressVN.findIndex(elemeet => element.title === addressFromBE);
+  // exercise 1: change title 'HP' => 'Hai Phong'
+
     
   </script>
 
