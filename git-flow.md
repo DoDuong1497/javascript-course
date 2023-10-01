@@ -77,4 +77,8 @@ $ git commit -m "{message}"
 # 5. push to remote
 $ git push --set-upstream origin feature/{name branch}
 
+# 6. merger branch
+$ git checkout main
+$ git merge feature/{name branch}
+
 ```
