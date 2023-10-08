@@ -9,22 +9,47 @@
 
   <script type="text/javascript">
     const addressVN = [
-    { id: 1, title: 'HCM'},
-    { id: 2, title: 'HN'},
-    { id: 3, title: 'DN'},
-    { id: 4, title: 'HP'},
-    { id: 5, title: 'CT'},
-   ]
-  const addressFromBE = 'DN';
-  const addressIndex = addressVN.findIndex(elemeet => element.title === addressFromBE);
-  // exercise 1: change title 'HP' => 'Hai Phong'
+      { id: 1, title: 'HCM'},
+      { id: 2, title: 'HN'},
+      { id: 3, title: 'DN'},
+      { id: 4, title: 'HP'},
+      { id: 5, title: 'CT'},
+    ]
+    const addressFromBE = 'DN';
+    const addressIndex = addressVN.findIndex(element => element.title === addressFromBE);
+    // exercise 1: change title 'HP' => 'Hai Phong'
 
-  // exercise 2: change all title short hand = full name
-  // HCM => Ho Chi Minh
-  // HN => Ha Noi
-  // DN => Da Nang
-  // HP => Hai Phong
-  // CT => Can Tho
+    // exercise 2: change all title short hand = full name
+    /*
+      const output = [
+        { id: 1, title: 'Ho Chi Minh'},
+        { id: 2, title: 'Ha Noi'},
+        { id: 3, title: 'Da Nang'},
+        { id: 4, title: 'Hai Phong'},
+        { id: 5, title: 'Can Tho'},
+      ]
+    */
+    
+    const output = [];
+    addressVN.forEach(item => {
+      let title = 'Ho Chi Minh';
+      if(item.title === 'HN') {
+        title = 'Ha Noi'
+      } else if (item.title === 'DN') {
+        title = 'Da Nang'
+      } else if (item.title === 'HP') {
+        title = 'Hai Phong'
+      } else if (item.title === 'CT') {
+        title = 'Can Tho'
+      }
+      const addressItem = {
+        ...item, // copy all property of object
+        title
+      }
+      output.push(addressItem)
+    })
+    
+    console.log('exercise 2: ', output)
 
     
   </script>

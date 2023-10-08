@@ -87,6 +87,8 @@ $ git merge feature/{name branch}
 
 ```bash
 # 1. create branch from main branch
+- before create branch
+$ git pull
 $ git checkout -b feature/{name branch}
 
 # 2. check status
@@ -102,5 +104,14 @@ $ git commit -m "{message}"
 $ git push --set-upstream origin feature/{name branch}
 
 # 6. create a pull request (PR) to merge feature branch to main branch
+1. go to source code on git
+2. click "Pull Request" button -> click "New Pull Request" button
+3. Comparing changes
+  - base: xx  -> ý là nhánh sẽ dc merge
+  - compare: xx -> ý là nhánh muốn merge 
+4. click "Create pull request" button
 
+# 7. merge branch
+- reviewed by other member
+- click "Merge pull request" button
 ```
