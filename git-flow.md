@@ -77,8 +77,30 @@ $ git commit -m "{message}"
 # 5. push to remote
 $ git push --set-upstream origin feature/{name branch}
 
-# 6. merger branch
+# 6. merge branch
 $ git checkout main
 $ git merge feature/{name branch}
+
+```
+
+## Step to step git flow when implement feature
+
+```bash
+# 1. create branch from main branch
+$ git checkout -b feature/{name branch}
+
+# 2. check status
+$ git status
+
+# 3. add file
+$ git add .
+
+# 4. commit message
+$ git commit -m "{message}"
+
+# 5. push to remote
+$ git push --set-upstream origin feature/{name branch}
+
+# 6. create a pull request (PR) to merge feature branch to main branch
 
 ```
