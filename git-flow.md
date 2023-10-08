@@ -115,3 +115,27 @@ $ git push --set-upstream origin feature/{name branch}
 - reviewed by other member
 - click "Merge pull request" button
 ```
+
+## How to get latest code into your branch
+
+```bash```
+# 1. checkout to main branch
+$ git checkout main
+
+# 2. pull latest code
+$ git pull
+
+# 3. checkout to your branch
+$ git checkout feature/{name branch}
+
+# 4. merge main branch to your branch
+$ git merge main
+```
+
+
+feature/array-truong
+  
+- git checkout main
+- git pull
+- git checkout feature/array-truong
+- git merge main
