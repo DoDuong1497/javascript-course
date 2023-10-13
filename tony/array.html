@@ -17,9 +17,8 @@
     ]
     const addressFromBE = 'DN';
     const addressIndex = addressVN.findIndex(element => element.title === addressFromBE);
-    // exercise 1: change title 'HP' => 'Hai Phong'
 
-    // exercise 2: change all title short hand = full name
+    // exercise 1: change all title short hand = full name
     /*
       const output = [
         { id: 1, title: 'Ho Chi Minh'},
@@ -28,6 +27,13 @@
         { id: 4, title: 'Hai Phong'},
         { id: 5, title: 'Can Tho'},
       ]
+    */
+
+    /*
+      const output2 = [
+      { id: 1, title: 'Ho Chi Minh', titleLengh: 12},
+      { id: 4, title: 'Hai Phong', titleLengh: 10},
+    ]
     */
     
     const output = [];
@@ -44,12 +50,13 @@
       }
       const addressItem = {
         ...item, // copy all property of object
-        title
+        title,
+        titleLengh: title.length
       }
       output.push(addressItem)
     })
     
-    console.log('exercise 2: ', output)
+    console.log('exercise 1: ', output)
 
     
   </script>
