@@ -20,14 +20,28 @@
       firstName: 'Anon',
       lastName: 'User'
     }];
-    // Output: ['OBOB', 'ECNERWAL', 'NONA']
+    // Output: ['OBOB', 'EcNERWAL', 'NONA']
 
     /*
       - function return a new array container firstName: arrayA
       - function return a item uppercase
       - function return a item reverse
     */
+    function upperCase(users) {
+      // map
+      const names = users.map(item => item.firstName)
+      // const uppercases = names.map(name => {
+      //   return name.toUpperCase()
+      // })
+      const uppercases = names.map(name => name.toUpperCase())
+      const output = uppercases.map(name => {
+        return name.split('').reverse().join('');
+      })
+      return output
+    }
 
+    const output = upperCase(input);
+    console.log('output: ', output)
 
   </script>
 

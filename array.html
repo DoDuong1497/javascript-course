@@ -234,6 +234,96 @@
   const bookFilters = books.filter(item => item.author === name);
   console.log('array find: ', {bookItem, bookFilters})
 
+  // array
+  const numbersCount = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const total = numbersCount.reduce((acc, curr) => {
+    acc = acc + curr; 
+    // first call: 5 + 1 = 6
+    // second call: 6 + 2 = 8
+    // ...
+    return acc;
+  }, 0)
+  console.log('array reduce: ', total)
+  
+  // shopping cart
+  const products = [
+    { name: 'banana', quality: 10, price: 20 },
+    { name: 'laptop', quality: 2, price: 15 },
+    { name: 'iphone', quality: 10, price: 4 }
+  ]
+  // output: 10 * 20 + 2 * 15 + 10 * 4 = 270
+  const totalCarts = products.reduce((acc, curr) => {
+    const quality = curr.quality;
+    const price = curr.price;
+    acc += quality * price;
+    return acc;
+  }, 0)
+  console.log('array reduce totalCarts: ', totalCarts)
+
+  // count values in objects
+  const identifies = ["Truong", "Tony", "Hau", "Truong", "Truong", "Hau"]
+  /*
+    output
+    {
+      'Truong': 3,
+      'Tony': 1,
+      'Hau': 2
+    }
+  */
+  const countIdentifies = identifies.reduce((acc, curr) => {
+    return acc;
+  }, {})
+
+  // group object by a property
+  const peoples = [
+    { name: 'Truong', age: 20 },
+    { name: 'Hau', age: 20 },
+    { name: 'Tony', age: 32 },
+    { name: 'Duy', age: 21 },
+    { name: 'Duy', age: 20 }
+  ]
+  /*
+    output group by age
+    {
+      20: [
+        { name: 'Truong', age: 20 },
+        { name: 'Hau', age: 20 },
+      ],
+      32: [
+        { name: 'Tony', age: 32 },
+      ],
+      21: [
+        { name: 'Duy', age: 21 }
+      ]
+    }
+  */
+
+  // reduce concat array
+   const friends = [
+    {
+      name: "Anna",
+      books: ["Bible", "Harry Potter"],
+      age: 21,
+    },
+    {
+      name: "Bob",
+      books: ["War and peace", "Romeo and Juliet"],
+      age: 26,
+    },
+    {
+      name: "Alice",
+      books: ["The Lord of the Rings", "The Shining"],
+      age: 18,
+    },
+  ];
+
+  /*
+    output
+    [
+     'Bible', 'Harry Potter', 'War and peace', 'Romeo and Juliet', 'The Lord of the Rings', 'The Shining'
+    ]
+  */
+
 
     
   </script>
