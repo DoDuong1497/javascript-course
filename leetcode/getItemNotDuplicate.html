@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>getItemNotDuplicate</title>
+</head>
+<body>
+
+  <h1 id="dataType">getItemNotDuplicate</h1>
+
+  <!-- internal script -->
+  <script type="text/javascript">
+    const campaginOld = [
+      {
+        campaignId: "google-195b4eee-b0ee-4475-a70e-6bb8dbafd748",
+        campaignName: "ad group 1",
+      },
+      {
+        campaignId: "3123",
+        campaignName: "ad group 3",
+      },
+    ];
+
+    const campaginNew = [
+      {
+        campaignId: "google-32231",
+        campaignName: "ad group 2",
+      },
+      {
+        campaignId: "google-195b4eee-b0ee-4475-a70e-6bb8dbafd748",
+        campaignName: "ad group 1",
+      },
+    ];
+
+    /*
+      get campaign not duplicate 
+      output = [
+        {
+          campaignId: "google-32231",
+          campaignName: "ad group 2",
+        },
+        {
+          campaignId: "google-195b4eee-b0ee-4475-a70e-6bb8dbafd748",
+          campaignName: "ad group 1",
+        },
+        {
+          campaignId: "3123",
+          campaignName: "ad group 3",
+        },
+      ]
+    */
+
+  </script>
+
+</body>
+</html>
