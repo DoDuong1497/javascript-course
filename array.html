@@ -281,23 +281,41 @@
     { name: 'Tony', age: 32 },
     { name: 'Duy', age: 21 },
     { name: 'Duy', age: 20 }
-  ]
-  /*
-    output group by age
-    {
-      20: [
-        { name: 'Truong', age: 20 },
-        { name: 'Hau', age: 20 },
-      ],
-      32: [
-        { name: 'Tony', age: 32 },
-      ],
-      21: [
-        { name: 'Duy', age: 21 }
-      ]
-    }
-  */
+  ];
+    /*
+      output group by age
+      {
+        20: [
+          { name: 'Truong', age: 20 },
+          { name: 'Hau', age: 20 },
+        ],
+        32: [
+          { name: 'Tony', age: 32 },
+        ],
+        21: [
+          { name: 'Duy', age: 21 }
+        ]
+      }
+    */
 
+  // map -> array return new array
+  // loop, filter -> return new array
+  // array -> object -> reduce is array method
+  function groupByProperty(property) {
+    const res = peoples.reduce((acc, currItem) => {
+      const key = currItem[property]; 
+      if(!acc[key]) { 
+        acc[key] = [];
+      }
+      acc[key].push(currItem);
+      return acc;
+    }, {});
+
+    return res;
+  }
+  const outputGroupByProperty = groupByProperty('name');
+  console.log("group object by a property: ", outputGroupByProperty)
+ 
   // reduce concat array
    const friends = [
     {
