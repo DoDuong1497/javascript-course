@@ -32,6 +32,15 @@
       },
     ];
 
+    // const combinedArrays = [...campaginOld, ...campaginNew]; // es6 destructuring
+    // const combinedArrays = campaginOld.concat(campaginNew) // es5
+    const combinedArrays = [].concat(campaginOld, campaginNew) // es5
+
+    const output = combinedArrays.filter((item, index, arr) => {
+      const indexArr = arr.findIndex(_self => _self.campaignId === item.campaignId); //1 
+      return index === indexArr;
+    })
+
     /*
       get campaign not duplicate 
       output = [

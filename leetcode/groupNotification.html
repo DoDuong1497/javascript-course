@@ -6,53 +6,86 @@
 </head>
 <body>
 
-  <h1 id="dataType">groupNotification</h1>
+    <div id="notifications">
 
-  <!-- internal script -->
-  <script type="text/javascript">
-    const dataNotification = [
-      {
-        "email":      "email@example.com",
-        "first_name": "Tony",
-        "last_name":  "Nguyen",
-        "group":   "Billing", // | "Collaboration" | "Simulation", 
-        "type":    "warning", // "info" | "warning" | "alert" | "success",
-      },
-      {
-        "email":      "email@example.com",
-        "first_name": "John",
-        "last_name":  "Doe",
-        "group":   "Collaboration", // | "Collaboration" | "Simulation", 
-        "type":    "info", // "info" | "warning" | "alert" | "success",
-      },
-      {
-        "email":      "email@example.com",
-        "first_name": "Thang",
-        "last_name":  "Doe",
-        // String - define how to group notifications in stack
-        "group":   "Simulation", // | "Collaboration" | "Simulation", 
-        "type":    "warning", // "info" | "warning" | "alert" | "success",
-      },
-      {
-        "email":      "email@example.com",
-        "first_name": "Stefan",
-        "last_name":  "Doe",
-        "createdAt": "2020-06-24T07:51:48.659Z",
-        "group":   "Billing", // | "Collaboration" | "Simulation", 
-        "type":    "alert", // "info" | "warning" | "alert" | "success",
-      },
-    ];
+      
+    </div>
 
-    /* output
-    {
-      "Billing": [],
-      "Simulation": [],
-      "Collaboration": []
-    }
+    <script type="text/javascript">
+     const notifications = document.getElementById("notifications");
 
-    */
+      const dataNotification = [
+        {
+          "email":      "email@example.com",
+          "first_name": "Tony",
+          "last_name":  "Nguyen",
+          "group":   "Billing", // | "Collaboration" | "Simulation", 
+          "type":    "warning", // "info" | "warning" | "alert" | "success",
+        },
+        {
+          "email":      "email@example.com",
+          "first_name": "John",
+          "last_name":  "Doe",
+          "group":   "Collaboration", // | "Collaboration" | "Simulation", 
+          "type":    "info", // "info" | "warning" | "alert" | "success",
+        },
+        {
+          "email":      "email@example.com",
+          "first_name": "Thang",
+          "last_name":  "Doe",
+          // String - define how to group notifications in stack
+          "group":   "Simulation", // | "Collaboration" | "Simulation", 
+          "type":    "warning", // "info" | "warning" | "alert" | "success",
+        },
+        {
+          "email":      "email@example.com",
+          "first_name": "Stefan",
+          "last_name":  "Doe",
+          "createdAt": "2020-06-24T07:51:48.659Z",
+          "group":   "Billing", // | "Collaboration" | "Simulation", 
+          "type":    "alert", // "info" | "warning" | "alert" | "success",
+        },
+      ];
 
-  </script>
+      const output = dataNotification.reduce((acc, currItem) => {
+        const key = currItem.group;
+        if(!acc[key]) {
+          acc[key] = [];
+        }
+        // acc[key] = acc[key].concat(currItem)
+        acc[key].push(currItem)
+        return acc;
+      }, {})
+
+      console.log('output: ', output)
+      
+      /* how to loop object
+        1. convert object to array
+          - Object.keys(xx) -> return key
+          - Object.values(xx) -> return value
+        2. for ... in
+      */
+
+     for (const key in output) {
+        notifications.innerHTML += `
+          <div>${key}</div>
+          <ul id="ul">
+            <li>email: xxx</li>
+          </ul>
+        `
+     }
+  
+      /* output
+      {
+        "Billing": [],
+        "Simulation": [],
+        "Collaboration": []
+      }
+      */
+      console.log(dataNotification)
+    </script>
 
 </body>
+
+
 </html>
