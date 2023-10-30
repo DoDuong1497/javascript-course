@@ -65,16 +65,29 @@
           - Object.values(xx) -> return value
         2. for ... in
       */
+    
 
-     for (const key in output) {
-        notifications.innerHTML += `
-          <div>${key}</div>
-          <ul id="ul">
-            <li>email: xxx</li>
-          </ul>
-        `
-     }
-  
+      for (const key in output) {
+        if (output.hasOwnProperty(key)) {
+          const items = output[key];
+
+          const groupListItem = document.createElement("li");
+          groupListItem.textContent = key;
+          
+          const groupDataList = document.createElement("ul");
+
+          // Iterate over the data in the group
+          items.forEach(item => {
+              const itemListItem = document.createElement("li");
+              itemListItem.textContent = `${item.first_name} ${item.last_name} - ${item.type}`;
+              groupDataList.appendChild(itemListItem);
+          });
+
+          // Append the group list item and its data to the main list
+          groupListItem.appendChild(groupDataList);
+          notifications.appendChild(groupListItem);
+        }
+      }
       /* output
       {
         "Billing": [],
