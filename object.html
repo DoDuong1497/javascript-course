@@ -140,13 +140,17 @@
       targetObject,
      })
 
-    // delete
+    // delete with es5
     const newBook = { ...book }; // shallow copy
-    delete newBook.firstName;
+    delete book.firstName;
+
+    // delete with es6
+    // const { firstName, ...newBook} = book
 
     console.log('delete object: ', { 
       sourceObject,
-      newBook
+      newBook,
+      book
     })
 
 
