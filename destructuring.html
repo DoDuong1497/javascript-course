@@ -9,6 +9,15 @@
 
   <!-- internal script -->
   <script type="text/javascript">
+
+    /*
+      destructuring: 
+        - array: Nó sẽ không quan tâm tên biến mà chỉ quan tâm đến vị trí của biến đó trong mảng
+            ex: const [a, , b, c] = [1, 2, 3, 4] => a: 1; b: 3; c: 4
+        - object: ta phải viết đúng tên NAME của object. Nó không quan tâm đến thứ tự của biến đó trong object
+            ex: const { country, name} = {name: 'tony', age: 12, country: VN} 
+                  => country: VN; name: tony
+    */
     // [1,2,3] = [1, 2, ...rest]
     const firstName = 'react course';
     const person = {
@@ -52,6 +61,112 @@
     };
 
     printOrdredList('China', 'yellow', 18);
+
+    // swap item
+    let source = 3;
+    let destination = 4;
+    [source, destination] = [destination, source] 
+
+    console.log('swap Item: ', {
+      source,
+      destination
+    })
+
+    // ignore item
+    function fruits() {
+      return ['apple', 'banana', 'orange', 'grape'];
+    }
+    const [apple, , , grape] = fruits();
+    console.log('ignore item: ', {
+      apple,
+      grape
+    })
+
+    // nested object
+    const book = {
+      title: 'react course',
+      name: 'meaning',
+      price: 800,
+      author: {
+        name: 'tony',
+        age: 18,
+        country: {
+          name: 'VN',
+          code: 'VN',
+          continent: 'Asia'
+        }
+      }
+    };
+    // es5
+    // const continent = book.author.country.continent;
+    // const age = book.author.age
+    // const author = book.author.country;
+    const name = 'dataBE';
+
+    // es6
+    // const { 
+    //   author: {
+    //     country,
+    //     country: {
+    //       continent
+    //     },
+    //     age,
+    //     name: authorName
+    //   },
+    //   author
+    // } = book;
+    const { 
+      name: nameCountry, 
+      code,
+      continent
+    } = book.author.country;
+
+    console.log('nested object: ', {
+      continent,
+      nameCountry
+    })
+
+    // ex
+    const product = {
+      name: 'iphone',
+      price: 1000,
+      category: 'phone',
+      brand: 'apple',
+      color: {
+        primary: 'red',
+        secondary: 'black',
+        type: {
+          name: 'hex'
+        }
+      },
+      user: {
+        name: {
+          firstName: 'tony',
+          lastName: 'truong'
+        },
+        age: 18,
+        country: 'VN'
+      },
+      size: {
+        width: 10,
+        height: 20,
+        weight: 30
+      }
+    }
+
+    // get name type of color
+    // get lastName of user
+    // get country of user
+    // get width of size
+
+    // array destructuring
+    const names = ['tony', 'truong', 'duong', 'nguyen'];
+    const [name1, name2, ...restName] = names;
+
+    console.log('array destructuring: ', {
+      restName
+    })
+
   </script>
 
   <!-- external script -->
