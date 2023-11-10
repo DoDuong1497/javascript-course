@@ -14,6 +14,10 @@
       firstName: 'tony',
       lastName: 'nguyen'
     }
+
+    // when client post data on server that require body data is json string
+    // json string: "{firstname: 'xxx', lastname: 'xxx'}"
+    // text string: "tony nguyen"
     
     /*
       JSON stringify method
@@ -34,6 +38,7 @@
       - When receiving data from a web server, the data is always a string.
       - Parse the data with JSON.parse(), and the data becomes a JavaScript object.
     */
+   // json string: "{firstname: 'xxx', lastname: 'xxx'}"
     const dataBE = `{"firstName":"tony","lastName":"nguyen"}`;
     const objectParsed = JSON.parse(dataBE);
 
