@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>web-storage</title>
+</head>
+<body>
+
+  <h1>web-storage</h1>
+
+  <!-- internal script -->
+  <script type="text/javascript">
+
+    /* Concepts
+    - It using to storage data in web browser
+      - localstorage
+      - sessionStorage
+      - cookie
+    */
+
+
+    /* localstorage
+    The localStorage object stores the data with no expiration date. 
+    - Storage maximum 5MB.
+    - Storaged from client side.
+    - Data is json string 
+    - The data will be deleted when the user clear  history of browser.
+
+    Method
+      localstorage.setItem(‘key’, value) -> luu tru data vao trong storage
+      localstorage.getItem(‘key’) -> lay data tu` trong storage
+      localstorage.removeItem(‘key’) -> no se remove cai storage chi dinh.
+      localstorage.clear() -> clear all storage.
+    */
+    // const data = "tony"; // string
+    const data = {
+      firstName: 'tony',
+      age: 18
+    }
+    localStorage.setItem('firstName', JSON.stringify(data)); // save in localstorage
+    const getObject = localStorage.getItem('firstName');
+    console.log('getObject: ', {
+      getObject,
+      age: JSON.parse(getObject).age
+    })
+    // localStorage.removeItem('firstName');
+
+
+    /* sessionStorage
+    - It stores the data for only one session.
+    - The data is deleted when the user closes the specific browser tab.
+    - Storaged from client side.
+    - Data doesn’t send on the server.
+    - Storage maximum 5MB.
+    - Data is json string 
+
+    Method
+      sessionStorage.setItem(‘key’, value) -> luu tru data vao trong storage
+      sessionStorage.getItem(‘key’) -> lay data tu` trong storage
+      sessionStorage.removeItem(‘key’) -> no se remove cai storage chi dinh.
+      sessionStorage.clear() -> clear all storage.
+    */
+    const dataBE = {
+      firstName: 'tony',
+      age: 18
+    }
+    sessionStorage.setItem('person', JSON.stringify(data));
+
+
+  </script>
+
+</body>
+</html>

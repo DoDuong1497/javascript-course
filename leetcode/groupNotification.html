@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>groupNotification</title>
+</head>
+<body>
+
+    <div id="notifications">
+
+      
+    </div>
+
+    <script type="text/javascript">
+     const notifications = document.getElementById("notifications");
+
+      const dataNotification = [
+        {
+          "email":      "email@example.com",
+          "first_name": "Tony",
+          "last_name":  "Nguyen",
+          "group":   "Billing", // | "Collaboration" | "Simulation", 
+          "type":    "warning", // "info" | "warning" | "alert" | "success",
+        },
+        {
+          "email":      "email@example.com",
+          "first_name": "John",
+          "last_name":  "Doe",
+          "group":   "Collaboration", // | "Collaboration" | "Simulation", 
+          "type":    "info", // "info" | "warning" | "alert" | "success",
+        },
+        {
+          "email":      "email@example.com",
+          "first_name": "Thang",
+          "last_name":  "Doe",
+          // String - define how to group notifications in stack
+          "group":   "Simulation", // | "Collaboration" | "Simulation", 
+          "type":    "warning", // "info" | "warning" | "alert" | "success",
+        },
+        {
+          "email":      "email@example.com",
+          "first_name": "Stefan",
+          "last_name":  "Doe",
+          "createdAt": "2020-06-24T07:51:48.659Z",
+          "group":   "Billing", // | "Collaboration" | "Simulation", 
+          "type":    "alert", // "info" | "warning" | "alert" | "success",
+        },
+      ];
+
+      const output = dataNotification.reduce((acc, currItem) => {
+        const key = currItem.group;
+        if(!acc[key]) {
+          acc[key] = [];
+        }
+        // acc[key] = acc[key].concat(currItem)
+        acc[key].push(currItem)
+        return acc;
+      }, {})
+
+      console.log('output: ', output)
+      
+      /* how to loop object
+        1. convert object to array
+          - Object.keys(xx) -> return key
+          - Object.values(xx) -> return value
+        2. for ... in
+      */
+    
+
+      console.log('output: ', output)
+      for (const key in output) {
+        if (output.hasOwnProperty(key)) {
+          const items = output[key];
+
+          const groupListItem = document.createElement("div");
+          groupListItem.textContent = key;
+          
+          const groupDataList = document.createElement("ul");
+
+          // Iterate over the data in the group
+          items.forEach(item => {
+              const itemListItem = document.createElement("li");
+              itemListItem.textContent = `${item.first_name} ${item.last_name} - ${item.type}`;
+              groupDataList.appendChild(itemListItem);
+          });
+
+          // Append the group list item and its data to the main list
+          groupListItem.appendChild(groupDataList);
+          notifications.appendChild(groupListItem);
+        }
+      }
+      /* output
+      {
+        "Billing": [],
+        "Simulation": [],
+        "Collaboration": []
+      }
+      */
+      console.log(dataNotification)
+    </script>
+
+</body>
+
+
+</html>
