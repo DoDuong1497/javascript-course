@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Class</title>
+</head>
+<body>
+
+  <h1>Class</h1>
+
+  <!-- internal script -->
+  <script type="text/javascript">
+    // declaration class
+    class Person {
+      constructor({ age = '', color  = '', gender  = '' }) {
+        // initial variables
+        this.firstName = 'Tony';
+        this.lastName = 'Nguyen';
+        this.color = color;
+        this.age = age;
+        this.gender = gender;
+      }
+
+      // add method
+      getFirstName() {
+        console.log(this)
+        return this.firstName;
+      }
+
+      getLastName() {
+        return this.lastName;
+      }
+
+      getFullName(middleName) {
+        // return this.getFirstName() + ' ' + this.getLastName()
+        return `${this.getLastName()} - ${middleName} - ${this.getFirstName()}`
+      }
+    
+      getColor(){
+        return this.color
+      }
+
+      getAge(){
+        return this.age
+      }
+    }
+
+    class Male extends Person {
+      constructor({ age, color, gender } ) {
+        super({ age, color, gender } );
+      }
+
+      getMaleAge() {
+        console.log(this)
+      }
+    }
+    // usage 
+    const person = new Person({
+      color: 'red',
+      age: 18
+    });
+    const firstName = person.getFirstName();
+    const fullName = person.getFullName('Nhat');
+    console.log('firstName: ', {
+      firstName,
+      fullName
+    })
+
+    // male
+    const male = new Male({
+      color: 'red',
+      age: 18
+    });
+    console.log('male: ', {
+      male,
+    })
+
+  </script>
+
+</body>
+</html>
