@@ -81,7 +81,48 @@
       // loop 2: 8 > 16 => {name: 'Bob', grade: 16, sex: 'M'},
       return acc.grade > curr.grade ? acc : curr;
     }, {})
-    console.log('maxGradeMan: ', maxGradeMan.grade)
+    console.log('maxGradeMan: ', maxGradeMan.grade);
+
+
+    // HOF
+    const isBoy = student => student.sex === 'M';
+    const isGirl = student => student.sex === 'F';
+
+    const getBoys = grades => grades.filter(isBoy);
+    const getGirls = grades => grades.filter(isGirl);
+
+    const average = grades => grades.reduce((acc, curr) => {
+      return acc + curr.grade;
+    }, 0) / classMan.length;
+
+    const maxGrade = grades => grades.reduce((acc, curr) => {
+      // loop 1: null > 8  => {name: 'John', grade: 8, sex: 'M'},
+      // loop 2: 8 > 16 => {name: 'Bob', grade: 16, sex: 'M'},
+      return acc.grade > curr.grade ? acc : curr;
+    }, {})
+
+    const minGrade = grades => grades.reduce((acc, curr) => {
+      return acc.grade < curr.grade ? acc : curr;
+    }, {});
+
+    const classAverage = average(grades);
+    const boysAverage = average(getBoys(grades));
+    const girlsAverage = average(getGirls(grades));
+    const highestGrade = maxGrade(grades);
+    const lowsetGrade = minGrade(grades);
+    const highestBoyGrade = maxGrade(getBoys(grades));
+    const highestGirlGrade = maxGrade(getGirls(grades));
+
+    console.log("anoy grades: ", {
+      classAverage,
+      boysAverage,
+      girlsAverage,
+      highestGrade,
+      lowsetGrade,
+      highestBoyGrade,
+      highestGirlGrade
+    })
+
 
   </script>
 
