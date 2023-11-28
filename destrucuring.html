@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Array</title>
+</head>
+<body>
+
+  <h1 id="dataType"> Destructuring </h1>
+
+  <script type="text/javascript">
+
+   // [1,2,3] = [1, 2, ...rest]
+   const firstName = 'react course';
+    const person = {
+      firstName: 'tony',
+      lastName: 'truong',
+      age: 18,
+      country: 'VN'
+    }
+    // const firstName = person.firstName; // es5
+    // change name default
+    const { firstName: personFirstName, ...rest } = person; // es6
+
+    console.log("demo destructuring: ", {
+        personFirstName,
+        rest
+    })
+
+    // set default value with params is object
+    function printPerson({ firstName, lastName, country = 'US'}, remains) {
+        console.log({
+            firstName,
+            lastName,
+            country,
+            remains
+        })
+    };
+
+    printPerson({
+        lastName: 'duong',
+        firstName: 'nguyen'
+        // country: 'Chicago'
+    }, 'remains');
+
+    // set default calue with params is normal
+    function printOrdredList(country, color = 'yellow', age = 20) {
+        console.log('printOrdredList: ', {
+            age,
+            country,
+            color
+        })
+    };
+
+    printOrdredList('China', 'yellow', 18)
+  </script>
+
+</body>
+</html>
