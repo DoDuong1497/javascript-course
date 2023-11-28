@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hoisting</title>
+</head>
+<body>
+
+  <h1>Hoisting</h1>
+
+  <!-- internal script -->
+  <script type="text/javascript">
+    
+    console.log('before: ', firstName)
+
+    var firstName = 'tony';
+
+    console.log('after: ', firstName)
+
+
+    // function
+    const resultLastName = getLastName();
+    console.log('function hoisting: ', resultLastName)
+    function getLastName() {
+      return 'nguyen'
+    }
+
+  </script>
+
+</body>
+</html>

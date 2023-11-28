@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HTTP</title>
+</head>
+<body>
+  <h1>HTTP</h1>
+
+  <div id="productList"></div>
+
+  <!-- internal script -->
+  <script type="text/javascript">
+    /*  Client error code: 4xx
+        400 — Bad Request: The server can’t or won’t process the request due to a client error. For example, invalid request message framing, deceptive request routing, size too large, etc.
+        401 — Unauthorized: The user doesn’t have valid authentication credentials to get the requested resource.
+        403 — Forbidden: The client doesn’t have access rights to the content. For example, it may require a password. Unlike the 401 HTTP error code, the server does know the client’s identity. 
+        404 — Not Found: The server can’t find the requested resource, and no redirection has been set. 404 errors can harm your SEO efforts. 
+   */
+
+    /* Server error code: 5xx
+      500 — Internal Server Error: The server has encountered an unexpected error and cannot complete the request. 
+      502 — Bad Gateway: The server acts as a gateway and gets an invalid response from an inbound host.
+      503 — Service Unavailable: The server is unable to process the request. This often occurs when a server is overloaded or down for maintenance. 
+    */
+
+
+    const productList = document.getElementById('productList');
+    // const data = [];
+    
+    // asynchronous
+    fetch('https://api.escuelajs.co/api/v1/products', {
+      method: 'GET',
+    })
+      .then(response => response.json())
+      .then(data => {
+        // data.push(data);
+        renderProductList(data);
+      })
+    
+    function renderProductList(dataSource = []) {
+      for (const item of dataSource) {
+        const div = document.createElement('div');
+        const br = document.createElement('br')
+        div.textContent = `
+          Title: ${item.title}
+          Description: ${item.description}
+        `
+        productList.appendChild(br)
+        productList.appendChild(div)
+      }
+    }
+
+  </script>
+
+</body> 
+</html>

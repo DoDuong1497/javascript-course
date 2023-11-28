@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>callback-function</title>
+</head>
+<body>
+
+  <h1 id="dataType">callback-function</h1>
+
+  <!-- internal script -->
+  <script type="text/javascript">
+    /* callback function
+     callback is a function that is to be executed after another function has finished executing — hence the name ‘call back’.
+     job: A, C, D, E
+     finished A -> C -> D -> E : run sequence
+    */
+
+    function doHomework(subject, callback) {
+      console.log(`Starting my ${subject} homework.`);
+      if(typeof callback === 'function') {
+        callback();
+      } else {
+        console.log('callback is not a function')
+      }
+    } 
+
+    doHomework('math', () => {
+      console.log('Finished my homework');
+    })
+  </script>
+
+</body>
+</html>

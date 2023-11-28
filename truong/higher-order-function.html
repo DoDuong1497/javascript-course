@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>higher-order-function</title>
+</head>
+<body>
+
+  <h1 id="dataType">higher-order-function</h1>
+
+  <!-- internal script -->
+  <script type="text/javascript">
+    function sum(x) {
+      return x + 5;
+    }
+
+    function applyTwice(func, arg) {
+      // 1. func(arg) -> sum(10) 0> 15
+      // 2. function(function(arg)) -> sum(sum(10)) -> sum(15) -> 20
+      return func(func(arg))
+    }
+    const result = applyTwice(sum, 10);
+    console.log("result: ", result)   
+
+    // example
+    const animals = [
+      { name: 'a', species: 'rabbit' },
+      { name: 'b', species: 'dog' },
+      { name: 'c', species: 'dog' },
+      { name: 'd', species: 'fish' },
+      { name: 'e', species: 'cat' },
+      { name: 'f', species: 'fish' },
+    ];
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>curry-function</title>
+</head>
+<body>
+
+  <h1 id="dataType">curry-function</h1>
+
+  <!-- internal script -->
+  <script type="text/javascript">
+    const sum = (a, b) => a + b;
+    console.log('sum tranditional: ', sum(2, 3))
+
+    // curry function
+    // sum(2)(3) => 5
+    const sumCurry = a => b => a + b;
+
+    // plus(2)(3)(4) => 24
+    const plusCurry = a => b => c => a * b * c;
+    function traditioalCurry(a) {
+      return function(b) {
+        return function(c) {
+          return a * b * c;
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>

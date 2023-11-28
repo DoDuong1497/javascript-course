@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>arrow-function</title>
+</head>
+<body>
+
+  <h1 id="dataType">arrow-function</h1>
+
+  <!-- internal script -->
+  <script type="text/javascript">
+    /* arrow-function
+     () => { ... }
+      Arrow functions were introduced in ES6.
+      Arrow function doesn’t this.
+      Arrow function doesn’t bind.
+      Arrow function to anonymous function
+    */
+
+    // traditional function
+    function setUser(name) {
+      console.log('setUser: ', name)
+    }
+
+    // anonymous function
+    const setUserAnomy = (name) => {
+      console.log('setUserAnomy: ', name)
+    }
+    setUserAnomy('tony')
+
+    // Arrow function doesn’t this.
+    const user = {
+      // properties
+      name: 'tony',
+      age: 18,
+      country: 'VN',
+      // methods
+
+      // traditional function
+      printName: function() {
+        console.log('printName traditional function: ', this.name)
+      },
+
+      // arrow function
+      printAge: () =>  {
+        console.log('printAge arrow function: ', this)
+      }
+    }
+
+    user.printName();
+    user.printAge();
+
+    // specified parameters
+    const sum1 = () => {}
+    const sum2 = a => {}
+    const sum3 = (a, b, c) => {}
+
+    // specified body
+    const sum4 = (a, b) => {
+      // block function
+      const c = 10;
+      return a + b + c;
+    }
+    const resNumber4 = sum4(2, 3); // 5
+
+    const sum5 = (a, b) =>( a + b); // expression function (return)
+
+    // Return Object Literals
+    const objectReturn = () => ({ name: 'truong', age: 18});
+
+    console.log('objectReturn: ', objectReturn()) // undefined
+
+  </script>
+
+</body>
+</html>

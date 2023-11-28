@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>stack-queue</title>
+</head>
+<body>
+
+  <h1>stack-queue</h1>
+
+  <!-- internal script -->
+  <script type="text/javascript">
+    /* 
+      A stack is an ordered collection of items that follows the LIFO (Last In First Out).
+
+      1/ Declare 1 class Stack with a variable items = [];
+      2/ Declare the methods available for our stack:
+      push (element): add a new item to the top.
+      pop (): removes the top item.
+      peek (): only return the top element.
+      isEmpty (): return true if the stack doesn’t contain any elements, false if the size bigger than 0.
+      clear (): removes all elements.
+      size() : return the number of elements that the stack contains.
+    */
+    const numbs = [5, 8, 11]; // stack
+    numbs.push(5);
+    numbs.push(8);
+    numbs.push(11);
+
+    console.log('before numbs: ', numbs)
+    
+    numbs.pop();
+    numbs.pop()
+
+    console.log('after numbs: ', numbs);
+
+    class Structure {
+      constructor() {
+        this.items = []
+      }
+
+      print() {
+        return this.items;
+      }
+
+      isEmpty() {
+        return this.items.length === 0; // true
+      }
+
+      clear() {
+        return this.items = []
+      }
+
+      size() {
+        return this.items.length
+      }
+
+      peek(index) {
+        return this.items[index];
+      }
+    }
+
+    class Stack extends Structure{
+      constructor() {
+        super();
+      }
+
+      add(item) {
+        this.items.push(item)
+      }
+
+      remove() {
+        this.items.pop();
+      }
+      
+    }
+
+    const stack = new Stack();
+    stack.add(5);
+    stack.add(8);
+    stack.add(10);
+
+    // remove item
+    // stack.remove();
+
+    const printStack = stack.print();
+    const sizeStack = stack.size();
+    const peekStack = stack.peek(printStack.length - 1);
+
+    console.log('stac: ', {
+      printStack,
+      sizeStack,
+      peekStack
+    })
+
+
+    /* QUEUE
+    A queue is an ordered collection of items that follows the FIFO (First In First Out).
+    1/ Declare 1 class Queue with a variable items = [];
+    2/ Declare the methods available for our queue:
+    enqueue (element): add a new item at the top of the queue.
+    dequeue (): removes the first element from the queue.
+    front (): returns the first element from the queue.
+    isEmpty (): return true if the queue doesn’t contain any elements, false if the size bigger than 0.
+    clear (): removes all elements.
+    size() : return the number of elements that the queue contains.
+    */
+
+    class Queue extends Structure{
+      constructor() {
+        super()
+      }
+
+      add(item) {
+        this.items.unshift(item)
+      }
+
+      remove() {
+        this.items.shift();
+      }
+    }
+
+    const queue = new Queue();
+    queue.add(15);
+    queue.add(20);
+    queue.add(30);
+
+    // remove item
+    // queue.remove();
+
+    const printQueue = queue.print();
+    const sizeQueue = queue.size();
+    const peekQueue = queue.peek(0);
+
+    console.log('Queue: ', {
+      printQueue,
+      sizeQueue,
+      peekQueue
+    })
+
+  </script>
+
+</body>
+</html>

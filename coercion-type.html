@@ -9,6 +9,27 @@
 
   <!-- internal script -->
   <script type="text/javascript">
+    /* coercion type: convert value to another type
+    - Number(): convert value to number
+      - '123' -> 123
+      - 'abc' -> NaN
+      - 'abc123' -> NaN
+      - {} -> NaN
+      - [] -> 0
+    - String(): convert value to string
+      - 123 -> '123'
+      - true -> 'true'
+      - false -> 'false'
+      - {} -> '[object Object]'
+      - [] -> ''
+    - Boolean(): convert value to boolean
+      - 0 -> false
+      - 1 -> true
+      - '' -> false
+      - 'abc' -> true
+      - {} -> true
+      - [] -> true
+    */
 
     // typof : to check type value
     const valueA = 'tr';
