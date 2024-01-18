@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Question Board</title>
+</head>
+<body>
+
+  <h1 id="dataType">Question Board</h1>
+
+  <!-- internal script -->
+  <script type="text/javascript">
+    function fakeApi(url) {
+      return new Promise(resovle => {
+        setTimeout(() => {
+          fetch(url).then(res => res.json()).then(data => resovle(data));
+        }, 1000)
+      })
+    }
+
+    async function getQuestions() {
+      const questions = await fakeApi('./mocks/dataQuestions.json');
+      return questions;
+    }
+
+    async function getSubmissions() {
+      const submissions = await fakeApi('./mocks/dataSubmissions.json');
+      return submissions;
+    }
+
+    async function combineQuestionsAndSubmissions() {
+      const questions = await getQuestions();
+      const submissions = await getSubmissions();
+      const questionFiltered = questions.map(question => {
+        const questionStatus = submissions.find(submission => submission.questionId === question.id); // undefined || object
+        // gray, green, red, yellow
+        let status = 'gray';
+        if (questionStatus?.status === 'CORRECT') {
+          status = 'green';
+        }
+        if (questionStatus?.status === 'INCORRECT') {
+          status = 'red';
+        }
+        if(questionStatus?.status === "PARTIALLY_CORRECT") {
+          status = 'yellow';
+        }
+        return {
+          ...question,
+          status
+        }
+      })
+
+      console.log({
+        questionFiltered
+      })
+    }
+
+    combineQuestionsAndSubmissions();
+
+  
+  </script>
+
+</body>
+</html>
