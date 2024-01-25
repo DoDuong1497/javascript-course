@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM</title>
+</head>
+<body>
+
+  <div id="heading">dom</div>
+
+  <p class="classname">classname 1</p>
+  <p class="classname">classname 2</p>
+
+  <!-- <div id="subtitle" class="heading3">subtitle</div> -->
+
+  <br />
+  <br />
+
+  <div id="main"></div>
+  <br />
+  <br />
+
+  <button id="button" type="button">please click</button>
+ 
+
+  <!-- internal script -->
+  <script type="text/javascript">
+    // access element by id
+    const heading = document.getElementById('heading');
+    heading.innerHTML = `
+      <h1>DOM INNER HTML</h1>
+      <b>DOM INNER HTML</b>
+    `;
+    heading.setAttribute('class', 'heading-attribute');
+    heading.style.color = 'red';
+    heading.style.fontSize = '30px';
+
+    const pElements = document.getElementsByClassName('classname');
+
+    /* add element html
+      create element -> add attri (optional) -> add inner html (optional) -> append child
+    */
+    const divSubTitle = document.createElement('div'); // create element
+    // add attribute
+    divSubTitle.setAttribute('id', 'subtitle');
+    divSubTitle.setAttribute('class', 'heading3');
+    // add inner html
+    divSubTitle.innerHTML = 'subtitle';
+    // append child
+    document.body.appendChild(divSubTitle);
+
+    // <div id="main">
+    //   <div class="products">
+    //     <div class="product_name">Iphone</div>
+    //   </div>
+    // </div>
+    const divMain = document.getElementById('main');
+    const productDiv = document.createElement('div');
+    productDiv.setAttribute('class', 'products');
+
+    const productNameDiv = document.createElement('div');
+    productNameDiv.setAttribute('class', 'product_name');
+    productNameDiv.innerHTML = 'Iphone';
+
+    productDiv.appendChild(productNameDiv);
+
+    divMain.appendChild(productDiv);
+
+    // add event listener
+    const button = document.getElementById('button');
+    // way 1
+    // button.onclick = function() {
+    //   console.log('please click')
+    // }
+    // way 2
+    button.addEventListener('click', function() {
+      console.log('please click')
+    })
+
+    window.onload = function() {
+      console.log('document loaded')
+    }
+
+
+    
+  </script>
+
+</body>
+</html>
