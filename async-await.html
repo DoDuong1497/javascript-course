@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Closure</title>
+</head>
+<body>
+
+  <h1 id="dataType">async await</h1>
+
+  
+  <script type="text/javascript">
+    async function test() {
+      return 1;
+    }
+    
+    async function getValue() {
+      const value = await test();
+      console.log('test: ', value);
+    }
+    getValue();
+  </script>
+
+</body>
+</html>

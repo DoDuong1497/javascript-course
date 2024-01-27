@@ -9,18 +9,19 @@
 
   <!-- internal script -->
   <script type="text/javascript">
-    function applyTwice(func, arg) {
-      // sum(5) => 6
-      // sum(6) => 7
-      return func(arg);
-    }
-
     function sum(x) {
-      return x + 1
+      return x + 5;
     }
 
-    console.log(applyTwice(sum, 5));
+    function applyTwice(func, arg) {
+      // 1. func(arg) -> sum(10) 0> 15
+      // 2. function(function(arg)) -> sum(sum(10)) -> sum(15) -> 20
+      return func(func(arg))
+    }
+    const result = applyTwice(sum, 10);
+    console.log("result: ", result)   
 
+    // example
     const animals = [
       { name: 'a', species: 'rabbit' },
       { name: 'b', species: 'dog' },
@@ -29,28 +30,16 @@
       { name: 'e', species: 'cat' },
       { name: 'f', species: 'fish' },
     ];
-
-    // find items in array is dogs
+    /* normal function */
     const dogs = [];
-    const cats = [];
-    for (let i = 0; i < animals.length; i++) {
-      if (animals[i].species === 'dog') {
-        dogs.push(animals[i]);
-      }
-      if (animals[i].species === 'cat') {
-        cats.push(animals[i]);
+    for(var i = 0; i < animals.length; i++) {
+      if(animals[i].species == 'dog') {
+        dogs.push(animals[i])
       }
     }
-    console.log('normal function:', { dogs, cats });
+    console.log('normal animals function: ', dogs);
 
-    // HOF
-    const isDog = animal => animal.species === 'dog';
-    const isCat = animal => animal.species === 'cat';
-    const dogHOF = animals.filter(isDog); 
-    const catHOF = animals.filter(isCat);
-    console.log('HOF:', { dogHOF, catHOF });
-
-    // baitap
+    // bai tap grade
     let grades = [
       {name: 'John', grade: 8, sex: 'M'},
       {name: 'Sarah', grade: 12, sex: 'F'},
@@ -62,68 +51,63 @@
       {name: 'Jennifer', grade: 13, sex: 'F'},
       {name: 'Courtney', grade: 15, sex: 'F'},
       {name: 'Jane', grade: 9, sex: 'F'}
-    ]
+    ];
 
-    // normal function
-    const averageClass = grades.reduce((acc, curr) => {
+    // tính trung binh
+    const averageGrades = grades.reduce((acc, curr) => {
       return acc + curr.grade;
     }, 0) / grades.length;
-    console.log('averageClass: ', averageClass)
 
-    const classMan = grades.filter(item => item.sex === 'M')
-    const averageClassMan = classMan.reduce((acc, curr) => {
+    // trung bình nam trong lớp 
+    const menGrades = grades.filter((grade) => grade.sex == 'M');
+    const averageMenGrades = menGrades.reduce((acc, curr) => {
       return acc + curr.grade;
-    }, 0) / classMan.length;
-    console.log('averageClassMan: ', averageClassMan)
+    }, 0) / grades.length;
 
-    const maxGradeMan = classMan.reduce((acc, curr) => {
+    // trung bình nữ trong lớp 
+    const womenGrades = grades.filter((grade) => grade.sex == "F");
+    const averageWomenGrades = womenGrades.reduce((acc, curr) => {
+      return acc + curr.grade;
+    }, 0) / grades.length;
+
+    // cao nhất nam trong lớp
+    const maxMenGrades = menGrades.reduce((acc, curr) => {
+      return acc.grade > curr.grade ? acc : curr;
+    }, {} )
+    // cao nhất nữ trong lớp
+    const maxWomenGrades = womenGrades.reduce((acc, curr) => {
+      return acc.grade > curr.grade ? acc : curr;
+    }, {} )
+
+    // thấp nhất nam trong lớp
+    const minMenGrades = menGrades.reduce((acc, curr) => {
+      return acc.grade < curr.grade ? acc : curr;
+    }, {} )
+
+     // thấp nhất nữ trong lớp
+     const minWomenGrades = womenGrades.reduce((acc, curr) => {
+      return acc.grade < curr.grade ? acc : curr;
+    }, {} )
+    // cao nhất lớp
+    const maxGrades = grades.reduce((acc, curr) => {
       // loop 1: null > 8  => {name: 'John', grade: 8, sex: 'M'},
       // loop 2: 8 > 16 => {name: 'Bob', grade: 16, sex: 'M'},
       return acc.grade > curr.grade ? acc : curr;
     }, {})
-    console.log('maxGradeMan: ', maxGradeMan.grade);
-
-
-    // HOF
-    const isBoy = student => student.sex === 'M';
-    const isGirl = student => student.sex === 'F';
-
-    const getBoys = grades => grades.filter(isBoy);
-    const getGirls = grades => grades.filter(isGirl);
-
-    const average = grades => grades.reduce((acc, curr) => {
-      return acc + curr.grade;
-    }, 0) / classMan.length;
-
-    const maxGrade = grades => grades.reduce((acc, curr) => {
-      // loop 1: null > 8  => {name: 'John', grade: 8, sex: 'M'},
-      // loop 2: 8 > 16 => {name: 'Bob', grade: 16, sex: 'M'},
-      return acc.grade > curr.grade ? acc : curr;
-    }, {})
-
-    const minGrade = grades => grades.reduce((acc, curr) => {
+    // thấp nhất lớp
+    const minGrade = grades.reduce((acc, curr) => {
       return acc.grade < curr.grade ? acc : curr;
     }, {});
 
-    const classAverage = average(grades);
-    const boysAverage = average(getBoys(grades));
-    const girlsAverage = average(getGirls(grades));
-    const highestGrade = maxGrade(grades);
-    const lowsetGrade = minGrade(grades);
-    const highestBoyGrade = maxGrade(getBoys(grades));
-    const highestGirlGrade = maxGrade(getGirls(grades));
-
-    console.log("anoy grades: ", {
-      classAverage,
-      boysAverage,
-      girlsAverage,
-      highestGrade,
-      lowsetGrade,
-      highestBoyGrade,
-      highestGirlGrade
+    console.log('class: ', {
+      averageGrades,
+      maxGrades,
+      minGrade,
+      averageMenGrades,
+      averageWomenGrades,
+      maxMenGrades,
+      minWomenGrades
     })
-
-
   </script>
 
 </body>

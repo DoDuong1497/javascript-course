@@ -9,19 +9,32 @@
 
   <!-- internal script -->
   <script type="text/javascript">
-    const sum = (a, b) => a + b;
-    console.log('sum tranditional: ', sum(2, 3))
+    // traditional function - declaration function
+    function sum(a, b) {
+      return a + b
+    }
 
-    // curry function
-    // sum(2)(3) => 5
-    const sumCurry = a => b => a + b;
+    const result = sum(1, 2);
+    console.log('traditional function: ', result)
 
-    // plus(2)(3)(4) => 24
-    const plusCurry = a => b => c => a * b * c;
-    function traditioalCurry(a) {
-      return function(b) {
-        return function(c) {
-          return a * b * c;
+    // sumCurry(1)(2)(3) -> curry function or transform function
+    // traditional function
+    function sumCurry(a) {
+      return function(b, d) {
+        return function(c, e)  {
+          return a + b + c + e + d
+        }
+      }
+    }
+    const resultCurry = sumCurry(1)(2,4)(3,5)
+    console.log('curry function: ', resultCurry)
+
+    // arrow function
+    // const arrowFunctionCurry = a => (b, d) => (c, e) => a + b + c + e + d
+    const arrowFunctionCurry = a => {
+      return (b, d) => {
+        return (c, e) => {
+          return a + b + c + e + d
         }
       }
     }
