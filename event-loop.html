@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>event loop</title>
+</head>
+<body>
+
+  <h1>event loop</h1>
+
+  <!-- internal script -->
+  <script type="text/javascript">
+
+  /* Two types of queues:
+      (macro)task queue (or just called the task queue). - setTImeout, setImmediate ...
+      microtask queue. - Promise, process.nextTick, queueMicroTask ...
+  */
+
+    console.log("truong");
+    setTimeout(() => console.log("sang"));
+    Promise.resolve('rosie').then(value => console.log(value));
+    const p1 = new Promise(resovle => {
+      console.log('p1');
+      resovle('p1 resovle')
+    });
+    p1.then(value => console.log(value));
+    setTimeout(() => console.log("khoa"), 1000);
+    console.log("tan");
+
+
+
+  </script>
+
+</body>
+</html>

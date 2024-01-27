@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>module-javascript</title>
+</head>
+<body>
+
+  <h1 id="dataType">module-javascript</h1>
+
+  <script type="module">
+    import getShip, { getPrice, BRANCH, sayHi, getAgeUser } from './js/shopee.js'; // import no default
+    import facebook, { getPrice as getPriceFackbook } from './js/facebook.js'; // import default
+
+    console.log(getPrice(1000));
+
+    console.log('BRANCH: ', BRANCH)
+    console.log('sayHi: ', sayHi())
+    console.log('getAgeUser: ', getAgeUser())
+    console.log('getShip: ', getShip())
+
+    console.log('getFacebook: ', facebook())
+    console.log('getPriceFackbook: ', getPriceFackbook())
+  </script>
+
+</body>
+</html>

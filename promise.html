@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PROMISE</title>
+</head>
+<body>
+
+  <h1>PROMISE</h1>
+
+  <!-- internal script -->
+  <script type="text/javascript">
+
+    // create promise
+    const p1 = new Promise((resovle, reject) => {
+      const todoItem = {
+        id: 1,
+        title: 'javascript'
+      }
+      resovle(todoItem);
+    });
+
+    // how to get result from a promise: then() method
+    p1.then((data) => {
+      console.log('promise: ', data)
+    })
+
+    console.log('p1: ', p1);
+
+
+    //eg: create promise
+    function fakeApi() {
+      return new Promise((resovle, reject) => {
+        fetch('https://tony-auth-express.vercel.app/api/todo', {
+          method: 'GET',
+        })
+        .then(res => resovle(res.json()))
+        .catch(err => reject(err))
+      });
+    }
+
+    fakeApi()
+      .then(data => {
+        console.log('fakeApi: ', data)
+      })
+
+    // chaining promise
+    const chainingPromise = new Promise((resovle) => {
+      resovle(5)
+    })
+
+    chainingPromise
+      .then(data => data * 2) // 5 * 2 => 10
+      .then(data => data * 2) //  10 * 2 => 20
+      .then(data => data * 3) //  20 * 3 => 60
+      .then(data => console.log('chaining promise: ', data))
+
+    // promise all
+    const pTodo = fetch('https://tony-auth-express.vercel.app/api/todo').then(res => res.json());
+    const p2 = Promise.resolve(5);
+    const pUser = fetch('https://tony-auth-express.vercel.app/api/user').then(res => res.json());
+
+    Promise.all([pTodo, pUser, p2]).then(data => {
+      console.log('promise all: ', data)
+    })
+
+    /* 
+      Promise.race(): The Promise.race() method returns a promise that fulfills or rejects as soon as 
+      one of the promises in an iterable fulfills or rejects, with the value or reason from that promise.
+    */
+   const race1 = new Promise((resovle) => {
+      setTimeout(() => {
+        resovle('race1')
+      }, 500)
+    })
+  const race2 = new Promise((resovle) => {
+    setTimeout(() => {
+      resovle('race2')
+    }, 1000)
+  })
+
+  Promise.race([race1, race2]).then(data => {
+      console.log('promise race: ', data)
+    })
+
+
+  </script>
+
+</body>
+</html>

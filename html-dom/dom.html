@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM</title>
+
+  <style type="text/css">
+    .category_board {
+      font-size: 20px;
+    }
+    .category_box {
+      border: 1px solid #000;
+      padding: 10px;
+      border-radius: 10px;
+      max-width: 120px;
+      margin-bottom: 10px;
+    }
+
+    .trackerBoard_box {
+      border: 1px solid #000;
+      padding: 10px;
+      border-radius: 10px;
+      max-width: 120px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="heading">dom</div>
+
+  <p class="classname">classname 1</p>
+  <p class="classname">classname 2</p>
+
+  <!-- <div id="subtitle" class="heading3">subtitle</div> -->
+
+  <br />
+  <br />
+
+  <div id="main"></div>
+  <br />
+  <br />
+
+  <button id="button" type="button">please click</button>
+  <br />
+  <br />
+
+  <div id="user_board">
+  
+  </div>
+
+  <div id="trackerBoard">
+    <div class="trackerBoard_box">
+      <p>Todo 1</p>
+      <p>Description todo 1</p>
+    </div>
+    <div class="trackerBoard_box">
+      <p>Todo 1</p>
+      <p>Description todo 1</p>
+    </div>
+    <div class="trackerBoard_box">
+      <p>Todo 1</p>
+      <p>Description todo 1</p>
+    </div>
+  </div>
+ 
+
+  <!-- internal script -->
+  <script type="text/javascript">
+    // access element by id
+    const heading = document.getElementById('heading');
+    heading.innerHTML = `
+      <h1>DOM INNER HTML</h1>
+      <b>DOM INNER HTML</b>
+    `;
+    heading.setAttribute('class', 'heading-attribute');
+    heading.style.color = 'red';
+    heading.style.fontSize = '30px';
+
+    const pElements = document.getElementsByClassName('classname');
+
+    /* add element html
+      create element -> add attri (optional) -> add inner html (optional) -> append child
+    */
+    const divSubTitle = document.createElement('div'); // create element
+    // add attribute
+    divSubTitle.setAttribute('id', 'subtitle');
+    divSubTitle.setAttribute('class', 'heading3');
+    // add inner html
+    divSubTitle.innerHTML = 'subtitle';
+    // append child
+    document.body.appendChild(divSubTitle);
+
+    // <div id="main">
+    //   <div class="products">
+    //     <div class="product_name">Iphone</div>
+    //   </div>
+    // </div>
+    const divMain = document.getElementById('main');
+    const productDiv = document.createElement('div');
+    productDiv.setAttribute('class', 'products');
+
+    const productNameDiv = document.createElement('div');
+    productNameDiv.setAttribute('class', 'product_name');
+    productNameDiv.innerHTML = 'Iphone';
+
+    productDiv.appendChild(productNameDiv);
+
+    divMain.appendChild(productDiv);
+
+    // add event listener
+    const button = document.getElementById('button');
+    // way 1
+    // button.onclick = function() {
+    //   console.log('please click')
+    // }
+    // way 2
+    button.addEventListener('dblclick', function() {
+      console.log('please click')
+    })
+
+    window.onload = function() {
+      console.log('document loaded')
+    }
+
+    /* Creating New HTML Elements (Nodes)
+
+     1. create the element (element node) createElement
+     2. and then append it to an existing element. appendChild
+    */
+    const userBoard = document.getElementById('user_board');
+
+    // <div class="category_board">HTML/CSS</div>
+    // <div class="category_list">
+    //   <div class="category_box">
+    //     Box Model
+    //   </div>
+    //    <div class="category_box">
+    //     Flex
+    //   </div>
+    // </div>
+    const boardDiv = document.createElement('div'); // create element
+    boardDiv.setAttribute('class', 'category_board'); // set attribute
+    boardDiv.innerHTML = 'HTML/CSS'; // add text content
+    boardDiv.style.color = '#f00'; // add inline style
+    boardDiv.style.fontWeight = 'bold'; // add inline style
+
+    const listDiv = document.createElement('div');
+    listDiv.setAttribute('class', 'category_list'); // set attribute
+
+    // const boxDiv = document.createElement('div');
+    // boxDiv.setAttribute('class', 'category_box'); // set attribute
+    // boxDiv.innerHTML = 'Box Model'
+
+    for (let i = 0; i < 3; i++) {
+      const boxDiv = document.createElement('div');
+      boxDiv.setAttribute('class', 'category_box'); // set attribute
+      boxDiv.innerHTML = `Box Model ${i}` 
+      listDiv.appendChild(boxDiv);
+    }
+
+    userBoard.appendChild(boardDiv); // append it
+    userBoard.appendChild(listDiv); // append it
+
+    
+  </script>
+
+</body>
+</html>
