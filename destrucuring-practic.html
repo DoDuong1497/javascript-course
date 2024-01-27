@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Closure</title>
+</head>
+<body>
+
+  <h1 id="dataType">destrucuring practic</h1>
+
+  <!-- internal script -->
+  <script type="text/javascript">
+
+    // es5
+    // const continent = book.author.country.continent;
+    // const age = book.author.age
+    // const author = book.author.country;
+    const namew = 'dataBE';
+
+    // es6
+    // const { 
+    //   author: {
+    //     country,
+    //     country: {
+    //       continent
+    //     },
+    //     age,
+    //     name: authorName
+    //   },
+    //   author
+    // } = book;
+
+    const product = {
+      name: 'iphone',
+      price: 1000,
+      category: 'phone',
+      brand: 'apple',
+      color: {
+        primary: 'red',
+        secondary: 'black',
+        type: {
+          name: 'hex'
+        }
+      },
+      user: {
+        name: {
+          firstName: 'tony',
+          lastName: 'truong'
+        },
+        age: 18,
+        country: 'VN'
+      },
+      size: {
+        width: 10,
+        height: 20,
+        weight: 30
+      }
+    }
+
+    // get name type of color
+    // get lastName of user
+    // get country of user
+    // get width of size
+
+     const {
+        color: {
+            type: { 
+                name
+            }
+        },
+        user: {
+            name: {
+                lastName
+            },
+            country
+        },
+        size: {
+            width
+        }
+
+    } = product;
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Array</title>
+</head>
+<body>
+
+  <h1 id="dataType">Array.reduce</h1>
+
+  <script type="text/javascript">
+   
+  // group object by a property
+  const peoples = [
+    { name: 'Truong', age: 20 },
+    { name: 'Hau', age: 20 },
+    { name: 'Tony', age: 32 },
+    { name: 'Duy', age: 21 },
+    { name: 'Duy', age: 20 }
+  ];
+    /*
+      output group by age
+      {
+        20: [
+          { name: 'Truong', age: 20 },
+          { name: 'Hau', age: 20 },
+        ],
+        32: [
+          { name: 'Tony', age: 32 },
+        ],
+        21: [
+          { name: 'Duy', age: 21 }
+        ]
+      }
+    */
+
+  // map -> array return new array
+  // loop, filter -> return new array
+  // array -> object -> reduce is array method
+  
+  // reduce concat array
+   const friends = [
+    {
+      name: "Anna",
+      books: ["Bible", "Harry Potter"],
+      age: 21,
+    },
+    {
+      name: "Bob",
+      books: ["War and peace", "Romeo and Juliet"],
+      age: 26,
+    },
+    {
+      name: "Alice",
+      books: ["The Lord of the Rings", "The Shining"],
+      age: 18,
+    },
+  ];
+
+  const resFriend = friend.reduce((acc, currItem) => {
+    let value = currItem['books'];
+
+    return acc.concat(value); 
+  }, []);
+
+  console.log('resFriend: ', resFriend);
+
+  /*
+    output
+    [
+     'Bible', 'Harry Potter', 'War and peace', 'Romeo and Juliet', 'The Lord of the Rings', 'The Shining'
+    ]
+  */
+
+
+    
+  </script>
+
+</body>
+</html>
