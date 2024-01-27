@@ -1,41 +1,55 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Duong DOM</title>
+  <head>
+    <title>Duong DOM</title>
 
-  <style type="text/css">
-    .trackerBoard_box {
-      border: 1px solid #000;
-      padding: 10px;
-      border-radius: 10px;
-      max-width: 120px;
-      margin-bottom: 10px;
-    }
-  </style>
-</head>
-<body>
+    <style type="text/css">
+      .trackerBoard_box {
+        border: 1px solid #000;
+        padding: 10px;
+        border-radius: 10px;
+        max-width: 120px;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <div id="trackerBoard">
+      <div class="trackerBoard_box">
+        <p>Todo 1</p>
+        <p>Description todo 1</p>
+      </div>
+      <div class="trackerBoard_box">
+        <p>Todo 1</p>
+        <p>Description todo 1</p>
+      </div>
+      <div class="trackerBoard_box">
+        <p>Todo 1</p>
+        <p>Description todo 1</p>
+      </div>
+    </div> -->
 
-  <div id="trackerBoard">
-    <div class="trackerBoard_box">
-      <p>Todo 1</p>
-      <p>Description todo 1</p>
-    </div>
-    <div class="trackerBoard_box">
-      <p>Todo 1</p>
-      <p>Description todo 1</p>
-    </div>
-    <div class="trackerBoard_box">
-      <p>Todo 1</p>
-      <p>Description todo 1</p>
-    </div>
-  </div>
- 
+    <!-- internal script -->
+    <script type="text/javascript">
+      const getBody = document.getElementsByTagName('BODY')[0];
 
-  <!-- internal script -->
-  <script type="text/javascript">
-   
-    
-  </script>
+      const trackerBoardDiv = document.createElement('div');
+      trackerBoardDiv.setAttribute('id', 'trackerBoard');
+      getBody.appendChild(trackerBoardDiv);
 
-</body>
+      for (let i = 0; i < 3; i++) {
+        const trackerBoardBoxDiv = document.createElement('div');
+        trackerBoardBoxDiv.setAttribute('class', 'trackerBoard_box');
+        trackerBoardDiv.appendChild(trackerBoardBoxDiv);
+
+        const pEleFirst = document.createElement('p');
+        pEleFirst.innerHTML = 'Todo 1';
+        trackerBoardBoxDiv.appendChild(pEleFirst);
+
+        const pEleLast = document.createElement('p');
+        pEleLast.innerHTML = 'Description todo 1';
+        trackerBoardBoxDiv.appendChild(pEleLast);
+      }
+    </script>
+  </body>
 </html>
