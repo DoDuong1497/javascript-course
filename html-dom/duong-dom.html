@@ -14,6 +14,7 @@
     </style>
   </head>
   <body>
+    <div id="trackerBoard"></div>
     <!-- <div id="trackerBoard">
       <div class="trackerBoard_box">
         <p>Todo 1</p>
@@ -31,16 +32,11 @@
 
     <!-- internal script -->
     <script type="text/javascript">
-      const getBody = document.getElementsByTagName('BODY')[0];
-
-      const trackerBoardDiv = document.createElement('div');
-      trackerBoardDiv.setAttribute('id', 'trackerBoard');
-      getBody.appendChild(trackerBoardDiv);
+      const trackerBoard = document.getElementById('trackerBoard');
 
       for (let i = 0; i < 3; i++) {
         const trackerBoardBoxDiv = document.createElement('div');
         trackerBoardBoxDiv.setAttribute('class', 'trackerBoard_box');
-        trackerBoardDiv.appendChild(trackerBoardBoxDiv);
 
         const pEleFirst = document.createElement('p');
         pEleFirst.innerHTML = 'Todo 1';
@@ -49,6 +45,8 @@
         const pEleLast = document.createElement('p');
         pEleLast.innerHTML = 'Description todo 1';
         trackerBoardBoxDiv.appendChild(pEleLast);
+
+        trackerBoard.appendChild(trackerBoardBoxDiv)
       }
     </script>
   </body>
