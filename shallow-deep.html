@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>shallow-deep</title>
+</head>
+<body>
+
+  <h1>shallow-deep</h1>
+
+  <!-- internal script -->
+  <script type="text/javascript">
+    // shallow clone: có nghĩa nó copy tất cả các properties của obj đó và có cùng tham chiếu vs nhau.
+
+    const persons = { 
+      firstName: 'tony',
+      lastName: 'nguyen',
+      age: 18
+    }
+    // const clonedPersons = Object.assign({}, person2) // way 1
+    const clonedPersons = { ...persons }; // way 2
+
+    clonedPersons.firstName = 'duc'
+
+    console.log('shallow clone: ', {
+      persons,
+      clonedPersons
+    })
+
+    const todos = [
+      { id: 1, title: 'javascript' },
+      { id: 2, title: 'react' },
+      { id: 3, title: 'angular' }
+    ]
+    // const clonedTodos = [...todos]; // shallow clone
+    // clonedTodos[1].title = 'vue'
+
+    // deep clone
+    // dùng để clone tất cả các thuôc tính của biến, nhưng nó sẽ ko có cùng tham chiếu vs nhau.
+    const deepCloneTodos = JSON.parse(JSON.stringify(todos)); // deep clone
+    deepCloneTodos[1].title = 'vue'
+
+
+
+    console.log('shallow clone: ', {
+      todos,
+      deepCloneTodos
+    })
+
+  </script>
+
+</body>
+</html>

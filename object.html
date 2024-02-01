@@ -11,15 +11,16 @@
   <!-- internal script -->
   <script type="text/javascript">
     // compare value (tham trị)
-    const a = 'dasd';
-    const b = 'ewqewq';
+    const a = 'dasd'; // memory A
+    const b = 'dasd'; // memory B
 
-    console.log('compare value: ', a === b); // false
+    console.log('compare value: ', a === b); // true
 
     // compare reference type (tham chiếu) - Object, Array
+    // so sánh tham chiếu là so sánh các vùng nhớ nhau
     const objA = {}; // memory A
     const objB = {}; // memory B
-    const objC = objA;
+    const objC = objA; // memory A
 
     console.log("compare reference A C: ", objA === objC); // true
     console.log("compare reference A B: ", objA === objB); // false
