@@ -260,17 +260,45 @@
       // count values in objects
       const identifies = ['Truong', 'Tony', 'Hau', 'Truong', 'Truong', 'Hau'];
       /*
-    output
-    {
-      'Truong': 3,
-      'Tony': 1,
-      'Hau': 2
-    }
-  */
+        output
+        {
+          'Truong': 3,
+          'Tony': 1,
+          'Hau': 2
+        }
+      */
       const countIdentifies = identifies.reduce((acc, curr) => {
         return acc;
       }, {});
 
+      // count every word apperance in str
+      const userString = 'tony aabc duong nguyen tony duong';
+      const userStringToArray = userString.split(' '); 
+      /* input [
+          "tony",
+          "aabc",
+          "duong",
+          "nguyen",
+          "tony",
+          "duong"
+        ]
+        output:  {
+          "tony": 2,
+          "aabc": 1,
+          "duong": 2,
+          "nguyen": 1,
+        }
+      */
+     const countWord = userStringToArray.reduce((acc, currItem) => {
+      if(!acc[currItem]) {
+        acc[currItem] = 1;
+      } else {
+        acc[currItem] = acc[currItem] + 1;
+      }
+      return acc;
+     }, {})
+
+     console.log('countWord: ', countWord)
       // group object by a property
       const peoples = [
         { name: 'Truong', age: 20 },
